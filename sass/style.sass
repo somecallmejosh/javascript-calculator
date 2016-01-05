@@ -1,0 +1,63 @@
+@import "base/utilities/__index"
+html 
+  font-size: 16px
+  font-family: 'Roboto', sans-serif
+html, body 
+  padding: 0
+  margin: 0
+*, *::before, *::after
+  box-sizing: border-box
+.calculator 
+  width: 100%
+  margin: 0 auto
+  max-width: 25rem
+.display
+  line-height: 5rem
+  text-align: right
+  padding: 0 2rem
+  background-color: $display-color
+  border: white 1px solid
+  font-size: 2rem
+  color: white
+  text-shadow: -1px -1px 0 rgba(black, .3)
+.buttons  
+  +display-flex
+  +flex-wrap(wrap)
+  width: 100%
+.button
+  text-align: center
+  height: 5rem
+  line-height: 5rem
+  border: white 1px solid
+  font-size: 1.5rem
+  text-shadow: -1px -1px 0 rgba(black, .3)
+  &:hover 
+    cursor: pointer
+[data-number]
+  background-color: $number-color
+  @extend %default-transition
+  color: $number-text
+  &:hover 
+    background-color: $number-hover
+  &:active
+    background-color: $number-active
+[data-operator]
+  background-color: $operator-color
+  @extend %default-transition
+  color: $operator-text
+  &:hover 
+    background-color: $operator-hover
+  &:active
+    background-color: $operator-active
+.one-col
+  +flex(1 0 25%)
+  width: 25%
+  max-width: 25%
+.two-col
+  +flex(2 0 50%)
+  width: 50%
+  max-width: 50%
+.three-col
+  +flex(3 0 75%)
+  width: 75%
+  max-width: 75%
