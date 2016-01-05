@@ -9,17 +9,20 @@ html, body
   box-sizing: border-box
 .calculator 
   width: 100%
-  margin: 0 auto
-  max-width: 25rem
+  margin: 1rem auto 0
+  max-width: 28rem
+  border: lighten($display-color, 40%) 1px solid
+  padding: .5rem
+  border-radius: .5rem
 .display
-  line-height: 5rem
+  line-height: 8rem
   text-align: right
-  padding: 0 2rem
+  padding: 0 2.5rem
   background-color: $display-color
   border: white 1px solid
-  font-size: 2rem
+  font-size: 2.5rem
   color: white
-  text-shadow: -1px -1px 0 rgba(black, .3)
+  text-shadow: -1px -1px 0 rgba(black, .7)
 .buttons  
   +display-flex
   +flex-wrap(wrap)
@@ -30,7 +33,6 @@ html, body
   line-height: 5rem
   border: white 1px solid
   font-size: 1.5rem
-  text-shadow: -1px -1px 0 rgba(black, .3)
   &:hover 
     cursor: pointer
 [data-number]
@@ -41,6 +43,8 @@ html, body
     background-color: $number-hover
   &:active
     background-color: $number-active
+    box-shadow: inset .5rem .5rem 1rem rgba(black, .2)
+    text-shadow: -1px -1px 0 rgba(black, .55)
 [data-operator]
   background-color: $operator-color
   @extend %default-transition
@@ -49,6 +53,8 @@ html, body
     background-color: $operator-hover
   &:active
     background-color: $operator-active
+    box-shadow: inset .5rem .5rem 1rem rgba(black, .3)
+    text-shadow: -1px -1px 0 rgba(black, .75)
 .one-col
   +flex(1 0 25%)
   width: 25%
