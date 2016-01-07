@@ -1,18 +1,16 @@
 (function(){
-  var display = [];
-  var calc = [];
-  var result = "Answer!";
-
+  var display;
+  var myNum;
+  var evaluated = false;
   var $displayContainer = $('.display');
-  var $button = $('.button')
-  
+  clearDisplay();
+  clearNumbers();
   function clearDisplay(){
     display = [];
   }
   function clearNumbers(){
-    calc = [];
+    myNum = [];
   }
-
   function displayNumbers(){
     if(display.length === 0) {
       $displayContainer.text("0");
@@ -21,45 +19,34 @@
     }
   }
 
-  function calculate(){
-    // Split array at
-      // multiply
-      // divide
-      // add
-      // subract
-    // Join Numbers (including decimals)
-
-    // return result...
-  }
-
-  // User Actions
-  $('[data-operator]').on("click", function(){
-    var operationValue = $(this).attr('data-operator');
-    if(operationValue !== "equal"){
+  $('[data-calc]').on("click", function(){
+    var select = $(this).attr('data-calc');
+    if(evaluated){
       clearDisplay();
-      displayNumbers();
-      calc.push(operationValue);
-    } else if(operationValue === "equal") {
-      if(calc.length){
-        // calculate();
-        clearDisplay();
-        clearNumbers();
-        $displayContainer.text(result);
-      }
+      clearNumbers();
+      evaluated = false;
     }
+    if (select !== "+" && select !== "/" && select !== "-" && select !== "*") {
+      display += select;
+      displayNumbers();
+      //console.log(display);
+    } else {
+      clearDisplay();
+    }
+    myNum += select;
+    //console.log(myNum);
   });
 
-  $('[data-number]').on("click", function(){
-    var buttonValue = $(this).attr("data-number");
-    display += buttonValue;
-    calc.push(buttonValue);
-    displayNumbers();
-  });
+  $('[data-operator="equal"]').on("click", function(){
+    evaluated = true;
+    // console.log(evaluated);
+    // console.log(eval(myNum));
+    $displayContainer.text(eval(myNum));
+  })
 
   $('[data-memory="clear"]').on("click", function(){
     clearDisplay();
     clearNumbers();
     displayNumbers();
   });
-
 })();
