@@ -1,29 +1,35 @@
 (function(){
   var display = [];
   var calc = [];
-  var displayContainer = $('.display');
+  var result = "Answer!";
+
+  var $displayContainer = $('.display');
   var $button = $('.button')
+  
   function clearDisplay(){
     display = [];
   }
   function clearNumbers(){
     calc = [];
   }
+
   function displayNumbers(){
     if(display.length === 0) {
-      displayContainer.text("0");
+      $displayContainer.text("0");
     } else {
-      displayContainer.text(display);
+      $displayContainer.text(display);
     }
   }
 
-  function arrayManipulation(){
+  function calculate(){
     // Split array at
       // multiply
       // divide
       // add
       // subract
     // Join Numbers (including decimals)
+
+    // return result...
   }
 
   // User Actions
@@ -35,7 +41,10 @@
       calc.push(operationValue);
     } else if(operationValue === "equal") {
       if(calc.length){
-        displayContainer.text("Answer!");
+        // calculate();
+        clearDisplay();
+        clearNumbers();
+        $displayContainer.text(result);
       }
     }
   });
