@@ -1,13 +1,13 @@
 @import "base/utilities/__index"
-html 
+html
   font-size: 16px
   font-family: 'Roboto', sans-serif
-html, body 
+html, body
   padding: 0
   margin: 0
 *, *::before, *::after
   box-sizing: border-box
-.calculator 
+.calculator
   width: 100%
   margin: 1rem auto 0
   max-width: 28rem
@@ -23,7 +23,8 @@ html, body
   font-size: 2.5rem
   color: white
   text-shadow: -1px -1px 0 rgba(black, .7)
-.buttons  
+  overflow-x: scroll
+.buttons
   +display-flex
   +flex-wrap(wrap)
   width: 100%
@@ -33,13 +34,13 @@ html, body
   line-height: 5rem
   border: white 1px solid
   font-size: 1.5rem
-  &:hover 
+  &:hover
     cursor: pointer
 .number
   background-color: $number-color
   @extend %default-transition
   color: $number-text
-  &:hover 
+  &:hover
     background-color: $number-hover
   &:active
     background-color: $number-active
@@ -49,7 +50,7 @@ html, body
   background-color: $operator-color
   @extend %default-transition
   color: $operator-text
-  &:hover 
+  &:hover
     background-color: $operator-hover
   &:active
     background-color: $operator-active
